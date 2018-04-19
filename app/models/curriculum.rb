@@ -29,7 +29,7 @@ class Curriculum < ApplicationRecord
   
   
   def delete_error
-        #throw(:abort)
+        throw(:abort)
   end
   
 

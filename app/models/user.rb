@@ -5,7 +5,6 @@ class User < ApplicationRecord
     
     
     validates :username, presence: true
-    #uniqueness: { case_sensitive: false }
     validates :password_digest, presence: true
     validates_inclusion_of :role, in: %w[admin instructor parent], message: "is not an accepted role"
     validates :email, presence: true, uniqueness: { case_sensitive: false}, format: { with: /\A[\w]([^@\s,;]+)@(([\w-]+\.)+(com|edu|org|net|gov|mil|biz|info))\z/i, message: "is not a valid format" }
