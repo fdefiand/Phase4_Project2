@@ -1,0 +1,39 @@
+<br><br><br>
+
+
+<p id="notice"><%= notice %></p>
+
+<% if @registrations.empty? %>
+  <h3>There are no registrations in the system at this time</h3>
+<% else %>
+
+<h2>Registrations</h2>
+
+ <table>
+    <thead>   
+      <tr>
+        
+        <th>Camp ID</th>
+        <th>Student ID</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      
+      <% @registrations.each do |registration| %>
+      <tr>
+        <td> <%= link_to registration.camp_id, registration %></td>
+        <td> <%= link_to registration.student_id, registration %></td>
+        
+        <td> <%= link_to 'Edit', edit_registration_path(registration) %></td>
+ 
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+<br>
+<%= link_to 'New registration', new_registration_path %>

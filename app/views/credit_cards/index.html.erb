@@ -1,0 +1,47 @@
+<br><br><br>
+
+<p id="notice"><%= notice %></p>
+
+<% if @credit_cards.empty? %>
+  <h4>There are no credit_cards in the system at this time</h4>
+<% else %>
+
+  <h2>credit_cards</h2>
+  
+  <table>
+    <thead>
+      <tr>
+  
+        <th>Name</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Time</th>
+        <th>Max Students</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @credit_cards.each do |credit_card| %>
+      <tr>
+        
+        <td> <%= link_to credit_card.curriculum.name, credit_card %></td>
+        <td> <%= link_to credit_card.start_date.strftime("%m/%d/%y"), credit_card %></td>
+        <td> <%= link_to credit_card.end_date.strftime("%m/%d/%y"), credit_card %></td>
+        <td> <%= link_to credit_card.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+        <td> <%= link_to credit_card.max_students, credit_card %></td>
+        
+        <td> <%= link_to 'Edit', edit_credit_card_path(credit_card) %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+    
+
+  </table>
+
+
+  <% end %>
+
+<br>
+<%= link_to 'New credit_card', new_credit_card_path %>

@@ -1,0 +1,39 @@
+<br><br><br>
+
+<p id="notice"><%= notice %></p>
+
+<% if @camp_instructors.empty? %>
+  <h4>There are no camp_instructors registered in the system</h4>
+<% else %>
+
+  <h2>Camp Instructors</h2>
+  
+  <table>
+    <thead>
+      <tr>
+        
+        <th>Instructor ID</th>
+        <th>Camp ID</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @camp_instructors.each do |camp_instructor| %>
+      <tr>
+        <td> <%= link_to camp_instructor.instructor_id, camp_instructor %></td>
+        <td> <%= link_to camp_instructor.camp_id, camp_instructor %></td>
+        <td> <%= link_to 'Show', camp_instructor %></td>
+        <td> <%= link_to 'Edit', edit_camp_instructor_path(camp_instructor) %></td>
+        <td> <%= link_to 'Destroy', camp_instructor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <% end %>
+
+<br>
+<%= link_to 'New camp_instructor', new_camp_instructor_path %>

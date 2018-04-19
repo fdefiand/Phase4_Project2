@@ -1,0 +1,43 @@
+<%= form_with(model: curriculum, local: true) do |form| %>
+  <% if curriculum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(curriculum.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+      <% curriculum.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: 'curriculum_name' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :min_rating %>
+    <%= form.text_field :min_rating, id: 'curriculum_min_rating' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :max_rating %>
+    <%= form.text_field :max_rating, id: 'curriculum_max_rating' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description, id: 'curriculum_description' %>
+  </div>
+
+  <div class="checkbox">
+    <label><%= form.check_box :active %> Is this curriculum active?</label>
+  </div>
+    
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

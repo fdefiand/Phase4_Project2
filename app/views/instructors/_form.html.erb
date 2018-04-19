@@ -1,0 +1,45 @@
+
+
+<%= form_with(model: instructor, local: true) do |form| %>
+  <% if instructor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
+
+      <ul>
+      <% instructor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+   <div class="field">
+    <%= form.label :user_id %>
+    <%= form.select :user_id, options_from_collection_for_select(User.all, 'id', 'username') %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: 'instructor_first_name' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: 'instructor_last_name' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :bio %>
+    <%= form.text_field :bio, id: 'instructor_bio' %>
+  </div>
+
+  <div class="checkbox">
+    <label><%= form.check_box :active %> Is this instructor active?</label>
+  </div>
+    
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

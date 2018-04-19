@@ -1,0 +1,45 @@
+<br><br><br>
+
+
+<p id="notice"><%= notice %></p>
+
+<% if @locations.empty? %>
+  <h3>There are no locations in the system at this time</h3>
+<% else %>
+
+<h2>Locations</h2>
+
+ <table>
+    <thead>   
+      <tr>
+        
+        <th>Name</th>
+        <th>Street 1</th>
+        <th>Street 2</th>
+        <th>Address</th>
+        <th>Max Capacity</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      
+      <% @locations.each do |location| %>
+      <tr>
+        <td> <%= link_to location.name, location %></td>
+        <td> <%= link_to location.street_1, location %></td>
+        <td> <%= link_to location.street_2, location %></td>
+        <td> <%= link_to "#{location.city}, #{location.state} #{location.zip}", location %></td>
+        <td> <%= link_to location.max_capacity, location %></td>
+        <td> <%= link_to 'Edit', edit_location_path(location) %></td>
+        
+        
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<% end %>
+
+<br>
+<%= link_to 'New Location', new_location_path %>

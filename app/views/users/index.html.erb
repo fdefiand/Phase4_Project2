@@ -1,0 +1,47 @@
+<br><br><br>
+
+<p id="notice"><%= notice %></p>
+
+<% if @users.empty? %>
+  <h4>There are no users in the system at this time</h4>
+<% else %>
+
+  <h2>Users</h2>
+  
+  <table>
+    <thead>
+      <tr>
+  
+        <th>Username</th>
+        <th>Password</th>
+        <th>Role</th>
+        <th>Phone</th>
+        <th>Email</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @users.each do |user| %>
+      <tr>
+        
+        <td> <%= link_to user.username, user %> </td>
+        <td> <%= link_to user.password, user %> </td>
+        <td> <%= link_to user.role, user %> </td>
+        <td> <%= link_to user.phone, user %> </td>
+        <td> <%= link_to user.email, user %> </td>
+        
+        <td> <%= link_to 'Edit', edit_user_path(user) %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+    
+
+  </table>
+
+
+  <% end %>
+
+<br>
+<%= link_to 'New user', new_user_path %>

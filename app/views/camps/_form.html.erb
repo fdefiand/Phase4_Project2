@@ -1,0 +1,62 @@
+
+
+<%= form_with(model: camp, local: true) do |form| %>
+  <% if camp.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(camp.errors.count, "error") %> prohibited this camp from being saved:</h2>
+
+      <ul>
+      <% camp.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  <div class="field">
+    <%= form.label :location_id %>
+    <%= form.select :location_id, options_from_collection_for_select(Location.all, 'id', 'name'), {}, id: 'location_id' %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :curriculum_id %>
+    <%= form.select :curriculum_id, options_from_collection_for_select(Curriculum.all, 'id', 'name'), { include_blank: true }, id: 'curriculum_id' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :cost %>
+    <%= form.text_field :cost, id: 'camp_cost' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :start_date %>
+    <%= form.date_select(:start_date, prompt: true, id: 'camp_start_date') %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :end_date %>
+    <%= form.date_select(:end_date, prompt: true, id: 'camp_end_date') %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :time_slot %>
+    <%= form.select :time_slot, options_for_select([["Morning", "am"], ["Afternoon", "pm"]], form.object.time_slot), {}, id: 'camp_time_slot' %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :max_students %>
+    <%= form.text_field :max_students, id: 'camp_max_students' %>
+  </div>
+
+  <div class="checkbox">
+    <label><%= form.check_box :active %> Is this camp active?</label>
+  </div>
+    
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,32 @@
+
+
+<%= form_with(model: camp_instructor, local: true) do |form| %>
+  <% if camp_instructor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(camp_instructor.errors.count, "error") %> prohibited this camp instructor from being saved:</h2>
+  
+  
+      <ul>
+      <% camp_instructor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="field">
+    <%= form.label :camp_id %>
+    <%= form.select :camp_id, options_from_collection_for_select(Camp.all, 'id', 'name') %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :instructor_id %>
+    <%= form.select :instructor_id, options_from_collection_for_select(Instructor.all, 'id', 'name') %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

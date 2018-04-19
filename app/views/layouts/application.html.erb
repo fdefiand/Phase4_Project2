@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chess Camps Website</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top w3-hide-small">
+      <div class="w3-bar w3-xlarge w3-black w3-opacity w3-hover-opacity-off" id="myNavbar">
+        <center>
+        <a href="/" class="w3-bar-item w3-button">HOME</a>
+        <a href="/about_us" class="w3-bar-item w3-button">ABOUT US</a>
+        <a href="/contact_us" class="w3-bar-item w3-button">CONTACT US</a>
+        <a href="/privacy_page" class="w3-bar-item w3-button">PRIVACY</a>
+        </center>
+      </div>
+    </div>
+    
+    
+    <header class = "main">
+      <h1><%= @page_title %></h1>
+      
+    </header>
+    <section class="content">
+      <nav class="side_nav">
+        <ul>
+          
+          <li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li><a href="/camps">>Camps</a></li>
+          <li><a href="/instructors">>Instructors</a></li>
+          <li><a href="/curriculums">>Curriculums</a></li>
+          <li><a href="/locations">>Locations</a></li>
+          <li><a href="/camp_instructors">>Camp Instructor</a></li>
+          <!-- Navbar (sit on top) <li><a href="/credit_cards">>Credit Cards</a></li> -->
+          <li><a href="/students">>Students</a></li>
+          <li><a href="/families">>Families</a></li>
+          <li><a href="/registrations">>Registrations</a></li>
+          <li><a href="/users">>Users</a></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+      </nav>
+    
+    
+    
+    <main class= '<%= controller.controller_name %>'>
+    <%= yield %>
+    </main>
+    </section>
+  </body>
+</html>
+
+
+<font15>
+<div class="footer">
+    </font15>
+    <font10>
+        <p>Created by Faiq Defiandry</p>
+    </font10>
+</div>
+
+
+

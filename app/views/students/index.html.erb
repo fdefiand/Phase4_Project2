@@ -1,0 +1,55 @@
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+
+
+<br><br><br>
+
+<p id="notice"><%= notice %></p>
+
+<% if @students.empty? %>
+  <h3>There are no students in the system at this time</h3>
+<% else %>
+
+  <h2>Students</h2>
+
+  <table>
+    <thead>
+      <tr>
+        
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Family ID</th>
+        <th>Date of Birth</th>
+        <th>Rating</th>
+        <th colspan = "5"></th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @students.each do |student| %>
+      <tr>
+        <td> <%= link_to student.first_name, student %></td>
+        <td> <%= link_to student.last_name, student %></td>
+        <td> <%= link_to student.family_id, student %></td>
+        <td> <%= link_to student.date_of_birth, student %></td>
+        <td> <%= link_to student.rating, student %></td>
+        
+        
+        <td> <%= link_to 'Edit', edit_student_path(student) %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+  <% end %>
+
+<br>
+<%= link_to 'New Student', new_student_path %>

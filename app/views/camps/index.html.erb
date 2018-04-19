@@ -1,0 +1,47 @@
+<br><br><br>
+
+<p id="notice"><%= notice %></p>
+
+<% if @camps.empty? %>
+  <h4>There are no camps in the system at this time</h4>
+<% else %>
+
+  <h2>Camps</h2>
+  
+  <table>
+    <thead>
+      <tr>
+  
+        <th>Name</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Time</th>
+        <th>Max Students</th>
+        
+      </tr>
+    </thead>
+    
+    <tbody>
+      <% @camps.each do |camp| %>
+      <tr>
+        
+        <td> <%= link_to camp.curriculum.name, camp %></td>
+        <td> <%= link_to camp.start_date.strftime("%m/%d/%y"), camp %></td>
+        <td> <%= link_to camp.end_date.strftime("%m/%d/%y"), camp %></td>
+        <td> <%= link_to camp.time_slot == "am" ? "Morning" : "Afternoon" %></td>
+        <td> <%= link_to camp.max_students, camp %></td>
+        
+        <td> <%= link_to 'Edit', edit_camp_path(camp) %></td>
+        
+      </tr>
+      <% end %>
+    </tbody>
+    
+
+  </table>
+
+
+  <% end %>
+
+<br>
+<%= link_to 'New camp', new_camp_path %>
